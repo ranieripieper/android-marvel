@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Marvel</string>
+
+    <string name="menu_characters">Personagens</string>
+    <string name="menu_favorites">Favoritos</string>
+    <string name="menu_favorite_character">Favoritar</string>
+    <string name="menu_character_list_grid">Tipo de visualização</string>
+
+    <string name="close">Close</string>
+    <string name="comics">Comics</string>
+    <string name="series">Series</string>
+    <string name="no_description">Sem descrição</string>
+
+    <string name="default_error">Ops! Ocorreu um erro inesperado!</string>
+
+    <string name="empty_result">Nenhum resultado encontrado!</string>
+
+    <string name="error_character_not_found">Character Detail not found!</string>
+
+</resources>

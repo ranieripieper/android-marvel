@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'koin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply from: "${rootDir}/versions.gradle"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "me.ranieripieper.android.marvel"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    applicationVariants.all { variant ->
+        buildConfigField "String", "MARVEL_PUBLIC_KEY", "\"4f820ab43eb85883af5cf9ff5467078a\""
+        buildConfigField "String", "MARVEL_PRIVATE_KEY", "\"1ee712347f92ca5a55bb1bc2c891c13c1ad5d0a2\""
+        buildConfigField "String", "MARVEL_API_URL", "\"http://gateway.marvel.com\""
+        buildConfigField "Integer", "PAGE_SIZE", "20"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlinVersion"
+    implementation "androidx.appcompat:appcompat:$versions.appCompatVersion"
+    implementation "androidx.core:core-ktx:$versions.coreKtx"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayoutVersion"
+    implementation "androidx.recyclerview:recyclerview:$versions.recyclerview"
+    implementation "com.google.android.material:material:$versions.material"
+
+    //koin
+    implementation "org.koin:koin-androidx-scope:$versions.koin"
+    implementation "org.koin:koin-androidx-viewmodel:$versions.koin"
+    implementation "org.koin:koin-androidx-fragment:$versions.koin"
+    implementation "org.koin:koin-core:$versions.koin"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.loggingInterceptor"
+    implementation "com.squareup.okhttp3:okhttp:$versions.okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:versions.$versions.coroutinesVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$versions.coroutinesAdapterVersion"
+
+    //room
+    implementation "androidx.room:room-runtime:$versions.room"
+    kapt "androidx.room:room-compiler:$versions.room"
+    implementation "androidx.room:room-ktx:$versions.room"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigationVersion"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$versions.glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$versions.glideVersion"
+
+    //test
+    testImplementation "junit:junit:$versions.test.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.test.extjunit"
+    androidTestImplementation "androidx.test:runner:$versions.test.runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.test.espressoCore"
+    testImplementation "androidx.arch.core:core-testing:$versions.test.coreTesting"
+    testImplementation "org.mockito:mockito-core:$versions.test.mockitoCore"
+    testImplementation "org.mockito:mockito-inline:$versions.test.mockitoCore"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.test.coroutinesTest"
+
+}

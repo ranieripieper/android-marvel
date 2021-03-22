@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivCharacter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_placeholder" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/AppTheme.CharacterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivCharacter"
+            tools:text="A-Bomb (HAS)" />
+
+        <include
+            android:id="@+id/loadingView"
+            layout="@layout/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/default_horizontal_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/default_horizontal_margin" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/AppTheme.CharacterDescription"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintEnd_toEndOf="@+id/endGuide"
+            app:layout_constraintStart_toStartOf="@+id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            tools:text="Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! " />
+
+        <TextView
+            android:id="@+id/tvComics"
+            style="@style/AppTheme.CharactersSubtitle"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/comics"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/endGuide"
+            app:layout_constraintStart_toStartOf="@+id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/default_horizontal_margin"
+            android:paddingEnd="@dimen/default_horizontal_margin"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvComics"
+            tools:listitem="@layout/item_cell_comic_serie"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvSeries"
+            style="@style/AppTheme.CharactersSubtitle"
+            android:layout_width="@dimen/match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/series"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/endGuide"
+            app:layout_constraintStart_toStartOf="@+id/startGuide"
+            app:layout_constraintTop_toBottomOf="@+id/rvComics"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSeries"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/default_horizontal_margin"
+            android:paddingEnd="@dimen/default_horizontal_margin"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeries"
+            tools:listitem="@layout/item_cell_comic_serie"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

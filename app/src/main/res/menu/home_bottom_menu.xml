@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="@string/menu_characters"
+        app:showAsAction="always"
+        android:label="fragment_characters"
+        android:id="@+id/characters_list"
+        android:icon="@drawable/ic_character" />
+
+    <item
+        android:title="@string/menu_favorites"
+        app:showAsAction="always"
+        android:label="fragment_favorites"
+        android:id="@+id/characters_favorites"
+        android:icon="@drawable/ic_star" />
+
+</menu>

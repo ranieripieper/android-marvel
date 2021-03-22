@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="@string/menu_character_list_grid"
+        app:showAsAction="always"
+        android:id="@+id/characters_list_grid"
+        app:iconTint="@color/white"
+        android:icon="@drawable/ic_list" />
+
+</menu>

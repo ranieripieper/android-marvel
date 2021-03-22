@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/characters_list">
+
+    <fragment
+        android:id="@+id/characters_list"
+        android:name="me.ranieripieper.android.marvel.feature.characters.view.CharactersFragment"
+        android:label="@string/menu_characters"
+        tools:layout="@layout/fragment_character_list">
+
+        <action
+            android:id="@+id/action_characters_list_to_character_detail"
+            app:destination="@id/character_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characters_favorites"
+        android:name="me.ranieripieper.android.marvel.feature.characters.view.CharactersFavoriteFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_character_favorites">
+
+        <action
+            android:id="@+id/action_characters_favorites_to_character_detail"
+            app:destination="@id/character_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/character_detail"
+        android:name="me.ranieripieper.android.marvel.feature.characters.view.CharacterDetailFragment"
+        tools:layout="@layout/fragment_character_detail"
+        android:label="{characterName}">
+
+        <argument
+            android:name="characterId"
+            app:argType="long" />
+        <argument
+            android:name="characterName"
+            app:argType="string" />
+        <argument
+            android:name="characterImage"
+            app:argType="string"
+            android:defaultValue="''" />
+    </fragment>
+
+</navigation>
